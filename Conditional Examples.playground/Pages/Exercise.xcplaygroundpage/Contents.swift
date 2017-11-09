@@ -1,3 +1,4 @@
+
 //: [Previous](@previous)
 //: # Exercise
 //: The following two statements are required to make the playground run. Please do not remove.
@@ -21,14 +22,23 @@ let canvas = Canvas(width: 400, height: 300)
  Fill in the blanks below the comments
  */
 // Loop 4 times, counting up by 100, from 0
-
-// Inside the loop, generate a random number (1 or 2)
-
-// Draw a square at the current position – black fill, white text when random number is one, otherwise, colours are inverted
-
+for i in stride(from: 1, through: 400, by: 100){
+    // Inside the loop, generate a random number (1 or 2)
+let randomValue = random(from: 1, toButNotIncluding: 3)
+    if randomValue == 1 {
+        canvas.fillColor = Color.black
+        canvas.drawRectangle(bottomLeftX: i, bottomLeftY: 0, width: 100, height: 300)
+        canvas.textColor = Color.white
+        canvas.drawText(message: "1", size: 100, x: i, y: 0)
+    } else {
+        canvas.fillColor = Color.white
+        canvas.drawRectangle(bottomLeftX: i, bottomLeftY: 0, width: 100, height: 300)
+        canvas.textColor = Color.black
+        canvas.drawText(message: "2", size: 100, x: i, y: 0)
+    }
+}
 /*:
  ## Template code
  The code below is necessary to see results in the Assistant Editor at right. Please do not remove.
  */
 PlaygroundPage.current.liveView = canvas.imageView
-
